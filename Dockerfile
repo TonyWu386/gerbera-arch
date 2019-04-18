@@ -20,7 +20,7 @@ RUN sudo -H -u gerbera bash -c 'yay -S --noconfirm gerbera' && \
 
 RUN LINE=$(grep -Fn 'gerbera' /etc/sudoers | awk -F: '{ print $1 }') && \
     sed -i "$LINE d" /etc/sudoers && \
-    pacman -R --noconfirm yay && \
+    pacman -Rcc --noconfirm yay && \
     rm -r /home/gerbera/yay
 
 EXPOSE 1900/udp 49152
