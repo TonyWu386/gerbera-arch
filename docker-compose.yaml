@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+
+  gerbera:
+    image: gerbera-arch
+    container_name: gerbera
+    volumes:
+      - <path to config>:/home/gerbera/.config/gerbera
+      - <path to media>:/media:ro
+    ports:
+      - <some port>:49152
+      - 1900:1900/udp
+    restart: unless-stopped
+    mem_limit: 256m
+    networks:
+      internal:
+        ipv4_address: 10.0.0.2
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+          gateway: 10.0.0.1

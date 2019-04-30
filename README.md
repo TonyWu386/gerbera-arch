@@ -14,3 +14,5 @@ Example usage:
         -p 1900:1900/udp \
         -m 256M \
         gerbera-arch
+
+Or see docker-compose.yaml
